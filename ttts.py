@@ -12,8 +12,12 @@ backgroundColor = "#6b6b6b" # Main app background color
 secondaryBackgroundColor = "#000000" # Background for widgets and containers
 textColor = "#ffffff" # Default text color
 
-df = pd.read_csv('sustainable_waste_management_dataset_2024.csv')
-df.head()
+uploaded_file = st.file_uploader("Upload CSV", type=["csv"])
+
+if uploaded_file is not None:
+    df = pd.read_csv("sustainable_waste_management_dataset_2024.csv")
+    st.dataframe(df.head())
+
 
 st.title("Sustainable Waste Management Graph")
 
